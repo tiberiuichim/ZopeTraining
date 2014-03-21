@@ -1,0 +1,8 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <include file="meta.zcml" package="zope.component" />
+
+    <include file="e06-first.zcml" />
+    <includeOverrides file="e06-second.zcml" />
+
+</configure>

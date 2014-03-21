@@ -1,0 +1,8 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <include file="meta.zcml" package="zope.component" />
+
+    <utility component="e05_utilities.util" />
+    <utility factory="e05_utilities.Utility" name="from_factory" />
+
+</configure>

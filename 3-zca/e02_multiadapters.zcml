@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <include file="meta.zcml" package="zope.component" />
+
+    <adapter
+        factory="02_multiadapters.GenericPortlet"
+        for="02_multiadapters.IPortletManager zope.interface.Interface"
+        name="generic_portlet" />
+
+    <adapter
+        factory="02_multiadapters.ImagePortlet"
+        for="02_multiadapters.IPortletManager e02_multiadapters.Image"
+        name="image_portlet" />
+
+</configure>

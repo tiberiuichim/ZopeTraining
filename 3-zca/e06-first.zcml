@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility factory="e06_overrides.FirstUtility" provides="e06_overrides.IUtility" />
+
+</configure>
+

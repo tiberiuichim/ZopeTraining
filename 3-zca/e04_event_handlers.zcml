@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <include file="meta.zcml" package="zope.component" />
+    <include package="zope.component" />
+
+    <subscriber
+        handler="e04_event_handlers.handle_some_event" 
+        />
+
+    <subscriber
+        handler="e04_event_handlers.handle_object_modified_event"
+        for="zope.interface.Interface 
+             e04_event_handlers.ObjectModifiedEvent"
+        />
+
+</configure>
