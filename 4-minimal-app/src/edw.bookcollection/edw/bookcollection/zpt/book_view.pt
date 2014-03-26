@@ -1,0 +1,11 @@
+<metal:macro use-macro="context/master/macros/page">
+  <metal:slot metal:fill-slot="title">
+    <title tal:content="context/title">Title</title>
+  </metal:slot>
+  <metal:slot metal:fill-slot="content">
+    <h1 ><span tal:content="context/title">Title</span>
+      <small class="text-muted" tal:content="string: by ${context/author}"></small></h1>
+    <p>Author: <span tal:replace="context/author" /></p>
+    <div tal:replace="structure context/text" />
+  </metal:slot>
+</metal:macro>

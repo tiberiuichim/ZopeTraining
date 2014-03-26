@@ -1,0 +1,20 @@
+<tal:block content="structure here/manage_page_header" />
+
+<h2>Add a new Book</h2>
+
+<form action="manage_add_book" method="post"
+      name="add-book" class="add-book" >
+
+    <label for="edit-id">id</label>
+    <input name="id" id="edit-id" />
+    <br />
+
+    <label for="edit-title">Title</label>
+    <input name="title" id="edit-title" />
+    <br />
+
+    <input type="submit" />
+</form>
+
+<tal:block content="structure here/manage_page_footer" />
+

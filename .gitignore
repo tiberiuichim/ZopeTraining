@@ -1,4 +1,11 @@
+*~
+*.swp
 *.py[cod]
+
+local
+include
+downloads
+logs
 
 # C extensions
 *.so

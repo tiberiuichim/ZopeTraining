@@ -1,0 +1,32 @@
+<metal:macro use-macro="context/master/macros/page">
+  <metal:slot metal:fill-slot="title">
+    <title tal:content="context/title">Title</title>
+  </metal:slot>
+  <metal:slot metal:fill-slot="content">
+    <h1 tal:content="context/title">Title</h1>
+    <a href="" tal:attributes="href string:${context/absolute_url}/@@addbook" 
+      class="pull-right btn btn-primary">Add book</a>
+    <table class='table table-hover'>
+      <thead>
+        <tr><th>Title</th>
+        <th>Author</th>
+        <th>&nbsp;</th></tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="book python:context.objectValues('Book')">
+          <td><a href="" tal:attributes="href book/absolute_url" tal:content="book/title">Book</a></td>
+          <td tal:content="book/author" />
+          <td>
+            <div class="dropdown">
+              <a data-toggle="dropdown" href="#">Actions</a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="" tal:attributes="href string:${book/absolute_url}/edit">Edit</a></li>
+                <li><a href="" tal:attributes="href string:${book/absolute_url}/delete">Delete</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </metal:slot>
+</metal:macro>

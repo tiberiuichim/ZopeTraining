@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five">
+
+    <browser:page
+        name="index_html"
+        for=".interfaces.IBookCollection"
+        permission="zope2.View"
+        class=".views.BookCollectionView"
+        template="zpt/book_collection_view.pt"
+        />
+
+    <browser:page
+        name="addbook"
+        for=".interfaces.IBookCollection"
+        permission="zope2.View"
+        class=".views.AddBook"
+        template="zpt/form.pt"
+        />
+
+    <browser:page
+        name="edit"
+        for=".interfaces.IBook"
+        permission="zope2.View"
+        class=".views.EditBook"
+        template="zpt/form.pt"
+        />
+
+    <browser:page
+        name="index_html"
+        for=".interfaces.IBook"
+        permission="zope2.View"
+        class=".views.BookView"
+        template="zpt/book_view.pt"
+        />
+
+    <browser:page
+        name="delete"
+        for=".interfaces.IBook"
+        permission="zope2.View"
+        class=".views.DeleteBook"
+        />
+
+</configure>
+
