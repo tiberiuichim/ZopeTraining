@@ -21,6 +21,7 @@ def demo_utilities(load_zcml):
         xmlconfig(open(fname))
     else:
         gsm.registerUtility(util)
+        gsm.registerUtility(factory=Utility, name='from_factory')
 
     other = getUtility(me.IUtility)
     assert other.private == "this is private data"
