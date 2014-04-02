@@ -3,6 +3,26 @@
     xmlns:five="http://namespaces.zope.org/five">
 
   <five:registerPackage package="." initialize=".zope2.initialize" />
+  <permission id="edw.AddBook" title="Add a book" />
+  <permission id="edw.AddBookCollection" title="Add a book collection" />
+
+
+  <five:registerClass 
+      class=".app.BookCollection"
+      meta_type="Book Collection"
+      permission="edw.AddBookCollection"
+      addview="addbookcollection"
+      global="true"
+      />
+
+  <five:registerClass 
+      class=".app.Book"
+      meta_type="Book"
+      permission="edw.AddBook"
+      addview="add_book_html"
+      global="false"
+      />
+
   <include file="views.zcml" />
 
 </configure>

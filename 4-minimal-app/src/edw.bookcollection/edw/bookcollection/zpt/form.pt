@@ -1,4 +1,4 @@
-<metal:macro use-macro="context/master/macros/page">
+<metal:macro use-macro="view/master/macros/page">
   <metal:slot metal:fill-slot="title">
     <title tal:content="view/title">Title</title>
   </metal:slot>

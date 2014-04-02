@@ -27,6 +27,10 @@ def demo_utilities(load_zcml):
     assert other.private == "this is private data"
 
     util_from_factory = getUtility(me.IUtility, name="from_factory")
+    u2 = getUtility(me.IUtility, name="from_factory")
+
+    assert u2 is util_from_factory
+    assert id(u2) == id(util_from_factory)
     assert getattr(util_from_factory, 'private', None) == None
 
     print "Done"

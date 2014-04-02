@@ -1,4 +1,5 @@
 from AccessControl import ClassSecurityInfo #, Unauthorized
+from App.ImageFile import ImageFile
 from OFS.SimpleItem import SimpleItem
 from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
@@ -6,7 +7,6 @@ from edw.bookcollection.interfaces import IBook
 from edw.bookcollection.interfaces import IBookCollection
 from zope.interface import implements
 from zope.schema.fieldproperty import FieldProperty
-from App.ImageFile import ImageFile
 
 
 class BookCollection(BTreeFolder2Base, SimpleItem):
@@ -18,15 +18,6 @@ class BookCollection(BTreeFolder2Base, SimpleItem):
     security = ClassSecurityInfo()
 
     title = FieldProperty(IBookCollection['title'])
-    master = PageTemplateFile('zpt/master.zpt', globals())
-
-    def get_root(self):
-        parent = self
-        while not IBookCollection.providedBy(parent):
-            parent = getattr(self, 'aq_parent', None)
-            if not parent:
-                break
-        return parent
 
     styles_css = ImageFile('styles.css', globals())
 

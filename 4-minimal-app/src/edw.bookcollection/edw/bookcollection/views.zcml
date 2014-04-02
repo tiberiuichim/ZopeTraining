@@ -1,7 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:five="http://namespaces.zope.org/five">
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="edw">
 
     <browser:page
         name="index_html"
@@ -12,9 +13,17 @@
         />
 
     <browser:page
+        name="addbookcollection"
+        for="zope.browser.interfaces.IAdding"
+        permission="edw.AddBook"
+        class=".views.AddBookCollection"
+        template="zpt/form.pt"
+        />
+
+    <browser:page
         name="addbook"
         for=".interfaces.IBookCollection"
-        permission="zope2.View"
+        permission="edw.AddBook"
         class=".views.AddBook"
         template="zpt/form.pt"
         />

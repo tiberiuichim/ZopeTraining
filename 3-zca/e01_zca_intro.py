@@ -72,6 +72,8 @@ class ImageSize(object):
     def get_size(self):
         return get_image_size(self.context)
 
+#     /-------------\
+# File ->  FileSize ->  ISized
 
 @implementer(ISized)
 @adapter(File)
@@ -99,6 +101,32 @@ gsm.registerAdapter(ImageSize)
 gsm.registerAdapter(FileSize)
 gsm.registerAdapter(PageSize)
 
+
+getToolByName(context, 'portal_catalog')
+
+context.portal_catalog
+context.header
+
+context.aq_parent
+context.aq_self
+
+context.__name__
+context.__parent__
+
+
+context.se.themes.data_and_maps
+
+context.getSite().portal_catalog
+
+getUtility(ICatalog, context=context)
+getMultiAdapter((context, request), name=header).
+
+
+registry = {
+    Image:ImageSize,
+    Page:PageSize,
+}
+
 def demo_single_adapters():
     print "=====[ Demo single adapters ]======="
     img = Image()
@@ -120,3 +148,32 @@ def demo_single_adapters():
 if __name__ == "__main__":
     demo_nonzca()
     demo_single_adapters()
+    import pdb; pdb.set_trace()
+
+
+
+
+
+IDublinCore(someobj).modified
+
+
+class IDublinCore(Interface):
+    """
+    """
+
+class SomeObj(Persistent):
+    data_modificarii = datetime.now()
+
+
+@adapter(SomeObj)
+@implementer(IDublinCore)
+class SomeObjDublinCore(object):
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    def modified(self):
+        return self.context.data_modificarii
+
+
+<adapter factory=".SomeObjDublinCore" for="SomeObj" provides="IDublinCore" />
