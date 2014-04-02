@@ -4,7 +4,7 @@ from zope.schema import Text
 
 
 class IBook(Interface):
-    title = TextLine(title=u"Title", required=True)
+    title = TextLine(title=u"Title", required=True, default=u"meme")
     author = TextLine(title=u"Author", required=True)
     text = Text(title=u"Text", required=False)
 

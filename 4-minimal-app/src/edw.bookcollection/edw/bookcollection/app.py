@@ -7,12 +7,15 @@ from edw.bookcollection.interfaces import IBook
 from edw.bookcollection.interfaces import IBookCollection
 from zope.interface import implements
 from zope.schema.fieldproperty import FieldProperty
+# from OFS.ObjectManager import ObjectManager
+# from OFS.role import RoleManager
 
 
 class BookCollection(BTreeFolder2Base, SimpleItem):
     """ A book collection
     """
     implements(IBookCollection)
+    _children = []
 
     meta_type = 'Book Collection'
     security = ClassSecurityInfo()
@@ -51,6 +54,12 @@ class Book(SimpleItem):
     title = FieldProperty(IBook['title'])
     author = FieldProperty(IBook['author'])
     text = FieldProperty(IBook['text'])
+
+    security.declareProtected('edw.EmbedBook', 'book_embed')
+    def book_embed(self):
+        """
+        """
+        return "something"
 
 
 manage_add_book_html = PageTemplateFile(

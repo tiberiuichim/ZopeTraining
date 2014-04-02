@@ -36,7 +36,13 @@ class BookCollectionView(BrowserView, Page):
 
 
 class BookView(BrowserView, Page):
-    pass
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        import pdb; pdb.set_trace()
+        return super(BookView, self).__call__()
 
 
 class Form(object):
